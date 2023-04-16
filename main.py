@@ -1,6 +1,9 @@
+import os
+from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from brain import Brain
 
+load_dotenv()
 
 def index(path, data):
     brain = Brain(path)
@@ -43,6 +46,7 @@ def test(path):
     brain = Brain(path=path, llm=ChatOpenAI(temperature=0))
     brain.wakeup()
     print(brain.queryChain("write me some code in python to list all files in a folder?"))
+
 
 index("./learning/dbs/testdb/", "./learning/data/")
 #play("./learning/dbs/testdb/")
